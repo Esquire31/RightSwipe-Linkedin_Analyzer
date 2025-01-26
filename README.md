@@ -1,9 +1,4 @@
-![Django](https://img.shields.io/badge/Django-4.x-green)  
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue)  
-![Selenium](https://img.shields.io/badge/Selenium-4.x-orange)  
-![Cohere API](https://img.shields.io/badge/Cohere%20API-AI%20Powered-blueviolet)   
-![Contributions](https://img.shields.io/badge/Contributions-Welcome-brightgreen)  
-![Status](https://img.shields.io/badge/Status-In%20Development-blue)  
+![Django](https://img.shields.io/badge/Django-4.x-green)  ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)  ![Selenium](https://img.shields.io/badge/Selenium-4.x-orange)  ![Cohere API](https://img.shields.io/badge/Cohere%20API-AI%20Powered-blueviolet)   ![Contributions](https://img.shields.io/badge/Contributions-Welcome-brightgreen)  ![Status](https://img.shields.io/badge/Status-In%20Development-blue)  
 
 
 # RightSwipe - LinkedIn Profile & Job Match Analyzer
