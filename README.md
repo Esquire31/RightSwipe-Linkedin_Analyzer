@@ -1,100 +1,156 @@
-# RightSwipe-LinkedIn Analyzer
+![Django](https://img.shields.io/badge/Django-4.x-green)  
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)  
+![Selenium](https://img.shields.io/badge/Selenium-4.x-orange)  
+![Cohere API](https://img.shields.io/badge/Cohere%20API-AI%20Powered-blueviolet)   
+![Contributions](https://img.shields.io/badge/Contributions-Welcome-brightgreen)  
+![Status](https://img.shields.io/badge/Status-In%20Development-blue)  
 
-## Overview
-RightSwipe-LinkedIn Analyzer is a web application that provides comprehensive profile analysis for HR professionals and recruiters. The system leverages machine learning to evaluate candidate compatibility with job descriptions and company values.
 
-## What is RightSwipe?
-A sophisticated tool that transforms LinkedIn profile analysis into actionable insights, enabling data-driven recruitment decisions.
+# RightSwipe - LinkedIn Profile & Job Match Analyzer
 
-## Installation & Updates
+A one-stop tool for HR that evaluates a candidate's LinkedIn profile against a job description, calculating a match score and providing a detailed cultural fit analysis based on the company's core cultural values. The application uses advanced text processing techniques and AI-powered insights to assess alignment with company values.
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/your-username/RightSwipe-LinkedIn-Analyzer.git
-cd RightSwipe-LinkedIn-Analyzer
-```
+---
 
-### 2. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+## Table of Contents
 
-### 3. Update Dependencies
-```bash
-pip install --upgrade -r requirements.txt
-```
+- [Features](#features)
+- [Demo](#demo)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
 
-### 4. Configuration
-- Copy `config.example.yml` to `config.yml`
-- Configure API keys and settings
-
-## Server Requirements
-- Python 3.8+
-- Required Python Libraries:
-  * pandas
-  * scikit-learn
-  * requests
-  * nltk
-  * transformers
-
-## Important Configuration
-- Ensure LinkedIn API credentials are properly configured
-- Set up environment variables for API access
-- Configure data privacy and compliance settings
+---
 
 ## Features
-- 🔍 LinkedIn Profile Analysis
-- 📊 Compatibility Scoring
-- 🤖 Machine Learning Matching
-- 📧 Detailed Candidate Reports
-- 🏢 Company Value Alignment
+
+- **LinkedIn Profile Parsing**: Automatically fetches data (about, experience, education, interests, accomplishments) from a LinkedIn profile.
+- **Job Description Analysis**: Extracts keywords and evaluates match score based on the job description.
+- **Cultural Fit Analysis**: Uses AI to provide a comprehensive evaluation based on company values and predefined criteria.
+- **Match Score Calculation**: Generates a percentage score indicating how well the candidate fits the job requirements.
+- **User-Friendly Interface**: Input forms and result pages are cleanly designed for an intuitive experience.
+
+---
+
+## Demo
+
+### Home Page
+- A simple form where users can input:
+  - LinkedIn profile URL
+  - Job description
+  - Company values
+
+### Results Page
+- Displays:
+  - Candidate's name
+  - Match score (percentage)
+  - Cultural fit analysis with:
+    - Overall alignment score
+    - Evaluation of criteria such as leadership, innovation, collaboration, etc.
+    - Full textual analysis
+
+---
+
+## Installation
+
+Follow these steps to set up and run the project locally:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/linkedin-job-match-analyzer.git
+   cd linkedin-job-match-analyzer
+   ```
+
+2. **Set Up a Virtual Environment**:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Set Environment Variables**:
+   Create a `.env` file in the project directory and add the following:
+   ```env
+   EMAIL=your_linkedin_email
+   PASSWORD=your_linkedin_password
+   COHERE_API_KEY=your_cohere_api_key
+   ```
+
+5. **Run Migrations**:
+   ```bash
+   python manage.py migrate
+   ```
+
+6. **Start the Server**:
+   ```bash
+   python manage.py runserver
+   ```
+
+7. **Access the Application**:
+   Open your browser and navigate to [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+---
+
+## Usage
+
+1. Enter the **LinkedIn Profile URL**, **Job Description**, and **Company Values** on the home page form.
+2. Submit the form to calculate the match score and cultural fit analysis.
+3. View the detailed results on the analysis page.
+
+---
+
+## Technologies Used
+
+- **Backend**:
+  - Django
+  - Django REST Framework
+- **Web Scraping**:
+  - [LinkedIn Scraper]([https://github.com/joeyism/linkedin_scraper/tree/master])
+  - Selenium
+- **AI Analysis**:
+  - [Cohere API](https://cohere.ai)
+- **Frontend**:
+  - HTML
+  - CSS (with modern frameworks for styling)
+- **Database**:
+  - SQLite (default Django database, can be replaced with PostgreSQL)
+- **Others**:
+  - Scikit-learn (for keyword extraction)
+  - Collections (for text preprocessing)
+
+---
 
 ## Project Structure
+
 ```
-RightSwipe-LinkedIn-Analyzer/
-│
-├── src/
-│   ├── analyzers/
-│   ├── models/
-│   └── utils/
-│
-├── tests/
-├── data/
-├── config.yml
-├── requirements.txt
-└── README.md
+linkedin-job-match-analyzer/
+├── linkedin_scraper/       # Handles LinkedIn profile scraping
+├── templates/              # HTML templates for the UI
+│   ├── calculate_match.html  # Input form page
+│   └── analysis_result.html  # Results page
+├── static/                 # Static assets (CSS, JS, images)
+├── match/                  # Main app for processing match and analysis
+│   ├── views.py            # View logic for rendering pages and processing input
+│   ├── serializers.py      # API serializers for validating input/output
+│   ├── urls.py             # Routes for the app
+├── settings.py             # Django settings file
+├── requirements.txt        # Python dependencies
+├── manage.py               # Django's management script
+└── README.md               # Project documentation
 ```
 
-## Development Setup
-1. Clone the repository
-2. Install Python dependencies
-3. Configure environment
-4. Run initial setup script
-5. Verify installation
+---
 
-## Contribution Guidelines
-1. Fork the repository
-2. Create feature branch
-3. Commit changes
-4. Push to branch
-5. Submit pull request
+## Future Improvements
 
-## License
-[Specify your license - e.g., MIT, Apache]
-
-## Contact
-[Your Contact Information]
-
-## Deployment Notes
-- Verify Python environment
-- Set up secure API handling
-- Implement data protection measures
-
-## Troubleshooting
-- Check Python version compatibility
-- Verify library dependencies
-- Review API connection settings
-
-## Additional Resources
-- [LinkedIn API Documentation](https://developer.linkedin.com/)
-- [Machine Learning in Recruitment](https://resources.example.com/ml-recruitment)
+- Using React instead of Plain HTML, CSS for better User Experience
+- Instead of web-scraping utilize Linkedin API for better results.
+- Add OAuth-based LinkedIn authentication to avoid manual email/password entry.
+- Implement caching for faster LinkedIn profile scraping.
+- Provide a downloadable PDF of the analysis results.
+- Support for additional profile sources (e.g., GitHub, personal websites).
