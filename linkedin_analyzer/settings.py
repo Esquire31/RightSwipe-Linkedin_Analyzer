@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--$jck2=@8)4id1)6d$agu=tu4mm+9%%e_*4%ada93lutwsp4#x'
+SECRET_KEY = '**********' # Add your secret key here
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,9 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # SECRETS
-EMAIL = "sanskarss.2002@gmail.com"
-PASSWORD = "AxYtQzZcWMrytK1"
-COHERE_API_KEY = "Xfjg8XfWDHwrvygE6GhekSlhyDftMEhxTmSYFL98"
+EMAIL = "**********" # Add your credentials here
+PASSWORD = "**********"
+COHERE_API_KEY = "**********"
 
 
 # Application definition
