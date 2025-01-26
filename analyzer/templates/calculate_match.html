@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculate Match</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-900 text-gray-200">
+  <div class="min-h-screen flex flex-col items-center justify-center">
+    <div class="max-w-4xl w-full bg-gray-800 p-8 rounded-lg shadow-lg">
+      <h1 class="text-3xl font-bold mb-6 text-center">Profile Match Calculator</h1>
+      <form method="post" action="{% url 'match_score_api' %}">
+        {% csrf_token %}
+        <div class="mb-4">
+          <label for="linkedin_url" class="block text-sm font-medium">LinkedIn URL</label>
+          <input type="url" id="linkedin_url" name="linkedin_url" placeholder="Enter LinkedIn URL"
+                 class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-3 text-gray-200 focus:ring-blue-500 focus:outline-none"
+                 required>
+        </div>
+        <div class="mb-4">
+          <label for="job_description" class="block text-sm font-medium">Job Description</label>
+          <textarea id="job_description" name="job_description" placeholder="Enter Job Description"
+                    class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-3 text-gray-200 focus:ring-blue-500 focus:outline-none"
+                    rows="5" required></textarea>
+        </div>
+        <div class="mb-4">
+          <label for="company_values" class="block text-sm font-medium">Company Values</label>
+          <textarea id="company_values" name="company_values" placeholder="Enter Company Values"
+                    class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-3 text-gray-200 focus:ring-blue-500 focus:outline-none"
+                    rows="5" required></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">
+            Analyze Profile
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

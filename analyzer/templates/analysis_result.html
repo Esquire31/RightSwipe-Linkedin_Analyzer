@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis Results</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-900 text-gray-200">
+  <div class="min-h-screen flex flex-col items-center justify-center">
+    <div class="max-w-6xl w-full bg-gray-800 p-8 rounded-lg shadow-lg">
+      <h1 class="text-3xl font-bold mb-6 text-center">Analysis Results</h1>
+
+      <!-- Match Score Block -->
+      <div class="bg-gray-700 p-6 rounded-lg shadow-md mb-6">
+        <h2 class="text-xl font-bold mb-2">Match Score</h2>
+        <p class="text-5xl font-extrabold text-green-500 text-center">{{ match_score }}</p>
+      </div>
+
+      <!-- Cultural Fit Analysis Block -->
+      {% if cultural_fit_analysis %}
+        <div class="bg-gray-700 p-6 rounded-lg shadow-md mb-6">
+          <h2 class="text-xl font-bold mb-4">Cultural Fit Evaluation</h2>
+
+          <!-- Loop through each detailed evaluation criterion -->
+          {% for criterion, evaluation in cultural_fit_analysis.detailed_evaluation.items %}
+            <div class="bg-gray-800 p-4 rounded-lg shadow-sm mb-4">
+              <h3 class="text-lg font-bold">{{ criterion }}</h3>
+              <p class="text-gray-300 mt-2">{{ evaluation }}</p>
+            </div>
+          {% endfor %}
+        </div>
+
+        <!-- Full Analysis Block -->
+        <div class="bg-gray-700 p-6 rounded-lg shadow-md">
+          <h2 class="text-xl font-bold mb-4">Full Analysis</h2>
+          <pre class="bg-gray-800 text-gray-300 p-4 rounded-lg whitespace-pre-wrap">{{ cultural_fit_analysis.full_analysis }}</pre>
+        </div>
+      {% else %}
+        <p class="text-gray-300 text-center">No cultural fit analysis available.</p>
+      {% endif %}
+
+      <!-- Back Button -->
+      <div class="text-center mt-6">
+        <a href="/" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Go Back</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
